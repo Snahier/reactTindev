@@ -90,3 +90,89 @@ Ao rodar
 ```bash
 yarn add axios
 ```
+
+## React Native
+
+### Criando um projeto
+
+A maneira mais fácil de criar um projeto React-Native é rodando o comando
+```bash
+npx react-native init nomeDoProjeto
+```
+
+Porém você também pode instalar de forma global o pacote do react native ao rodar
+```bash
+yarn global add react-native-cli
+```
+E com o pacote instalado você pode rodar
+```bash
+react-native init nomeDoProjeto
+```
+
+### Rodando o Projeto
+
+Para rodar o projeto é necessário executar um dos dois comandos à seguir
+```bash
+yarn react-native run-android
+yarn react-native run-ios
+```
+O IOS só funcionará caso esteja rodando em um MacOS
+
+Caso dê erro ao rodar o comando no android tente rodar um dos comandos a seguir dentro da pasta do projeto React Native antes de rodar um dos comandos acima
+```bash
+react-native start
+yarn start
+```
+
+### Diferenças entre o React Web e o React Native
+
+No React Native não se usa tags HTML.  
+ex:
+React | React Native
+|---|---|
+|`<p>`|`<Text>`|
+|`<div>`|`<View>`|
+
+No HTML sabemos que tags como H1, H2, p, span, etc... já fazem uma certa estilização própria.  
+No React Native nenhuma tag no geral tem uma estilização própria nem valor semântico ou seja, ela não significa nada ali dentro.
+
+Então toda vez que incluímos um texto no React native utilizamos apenas a tag `<Text>`.
+
+#### Estilização no React Native
+
+É possível utilizar uma sintaxe bem parecida com o CSS. Porém não utiliza-se o hífen.  
+Componentes também já vem no padrão **flex**
+
+Para utilizar estilização no React Native você pode passar o exemplo a seguir.
+```js
+<View style={{ flex: 1, backgroundColor: '#ffffff', justifyContent: 'center' }}></View>
+```
+
+Porém estilização inline não é uma boa prática, então importa-se o StyleSheet do react-native, e cria-se uma constante para o mesmo.  
+ex:
+```js
+import React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text>Hello World</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#7159c1',
+    justifyContent: 'center',
+  },
+});
+```
+
+No React-Native os componentes vem por padrão com `flexDirection: 'column'`. Do contrário do HTML que vem em `row`
+
+---
+
+Considerando todos os princípios acima, à partir desse ponto é tudo igual ao ReactJS. Chamadas à APIs, controle de estado, useEffect, useState, etc... Tudo funciona da mesma forma.

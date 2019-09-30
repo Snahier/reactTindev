@@ -240,4 +240,17 @@ adb reverse tcp:3333 tcp:3333
 ```
 E caso volte a falhar é só rodar esse comando de novo
 
-47:40 erro
+#### Manter User logado
+
+Ao atualizar o APP ele volta para a página de login, ele não mantém o usuário Logado.
+
+Vamos utilizar uma ferramenta que age como um local storage da web dentro do React Native, chamado **async storage**. É um storage de chave/valor para armazenar essas informações rápidas que precisamos ter entre as telas da aplicação, ou quando um usuário fecha e abre de novo.
+```bash
+yarn add @react-native-community/async-storage
+```
+Essa ferramenta não precisa de configuração adicional.  
+Porém para quem está no IOS, é necessário entrar no diretório `/IOS` e rodar o comando `pod install`.  
+
+Após isso é necessário rodar o `run-android/ios` de novo
+
+1:17:27
